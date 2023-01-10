@@ -17,6 +17,7 @@ class FavoriteController extends Controller
     public function index()
     {
        return Favorite::all();
+       
     }
 
     /**
