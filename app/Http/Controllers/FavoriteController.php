@@ -16,18 +16,7 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-       return Favorite::all();
-       
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return Favorite::all();
     }
 
     /**
@@ -41,10 +30,16 @@ class FavoriteController extends Controller
         $recipeId = $request->validated()['recipe_id'];
         $recipeText = $request->validated()['recipe_text'];
 
-        $favorite = Favorite::firstOrCreate([
-            'recipe_id' => $recipeId,
-            'recipe_text' => $recipeText
-        ]);
+        $favorite = Favorite::where('recipe_id', $recipeId)->first();
+
+        if ($favorite === null) {
+            Favorite::create([
+                'recipe_id' => $recipeId,
+                'recipe_text' => $recipeText
+            ]);
+        } else {
+            $favorite->delete();
+        }        
     }
 
     /**
