@@ -33,7 +33,7 @@ class FavoriteController extends Controller
         if ($favorite === null) {
             Favorite::create([
                 'recipe_id' => $recipeId,
-                'recipe_text' => $recipeText
+                'recipe_text' => $recipeText 
             ]);
         } else {
             $favorite->delete();
