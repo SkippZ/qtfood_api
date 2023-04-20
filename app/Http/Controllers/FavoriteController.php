@@ -14,11 +14,11 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        return Favorite::all();
+        return Favorite::all(); 
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage. 
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

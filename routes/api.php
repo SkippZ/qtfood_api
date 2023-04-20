@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/favorites', [FavoriteController::class, 'index']);
 Route::post('/favorites', [FavoriteController::class, 'store']);
+
+Route::get('/test', [TestController::class, 'index']);
